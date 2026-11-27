@@ -98,6 +98,21 @@ vetor_pronto:
     addi $a2, $t0, -1   #tam_vet = n - 1
     jal merge_sort
    
+	addi $t0, $zero, 0
+	addi $t1, $zero, 0
+for_print: 
+	beq $t0, $a2, fim_print
+	add $t2, $fp, $t1
+	lw $a0, 0($t1)
+	addi $v0, $zero, 1
+	syscall
+	addi $t1, $t1, 4
+	addi $t0, $t0, 1
+	j for_print
+
+fim_print: 
+
+
 .data 
 n: .asciiz "digite o numero de elementos do vetor: "
 elementos: .asciiz "digite o próximo elemento: "
